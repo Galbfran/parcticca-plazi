@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Product } from './entity/Product';
 
@@ -40,6 +40,10 @@ export class AppController {
   @Put("product/:id")
   updateProduct(@Param("id")id:number ,@Body() product: any){
     return `editando producto ${product.product} con id: ${id}`;
+  }
+  @Delete("product/:id")
+  deleteProduct(@Param("id")id:number ){
+    return `eliminando producto con id: ${id}`;
   }
 
 
